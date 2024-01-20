@@ -3,9 +3,7 @@ A collection of ideas, insights, and resources for improving RAG implementations
 
 ## Document Preprocessing Taxonomy
 
-### Taxonomy for Content Categorization in Documents
-
-#### 1. **Localised Explicit Content**
+### 1. **Localised Explicit Content**
 
 * **General Description**: This category includes documents where information is presented directly and unambiguously. The content is factual, straightforward, and often descriptive, requiring minimal interpretation or contextualization. The information in each section or paragraph is highly localised, typically self-contained, making it ideal for direct query matching in a RAG system.
   * **Self-contained Knowledge**
@@ -29,7 +27,7 @@ A collection of ideas, insights, and resources for improving RAG implementations
       * Statistical reports (with data interpretations).
       * Historical timelines (chronological event listings).
 
-#### 2. **Disjointed Explicit Content**
+### 2. **Disjointed Explicit Content**
 
 * **General Description**: This category encompasses documents where relevant information is spread across different sections or chunks, often lacking explicit links or references between them. This structural disjointness often results in fragmentation of information, requiring more complex preprocessing to identify and connect relevant parts.
   * **Longitudinal Semantics**
@@ -53,7 +51,7 @@ A collection of ideas, insights, and resources for improving RAG implementations
       * Legal documents (definitions in one part, clauses in another referencing those terms).
       * Serial blog posts (each post building on previous ones).
 
-#### 3. **Implicit Contextual Content**
+### 3. **Implicit Contextual Content**
 
 * **General Description**: This category comprises documents where most chunks carry implicit information, often related to document-level metadata or overarching themes. Understanding such content requires recognizing these underlying, often unspoken, contexts.
   * **Global Metadata-Dependent**
@@ -77,7 +75,7 @@ A collection of ideas, insights, and resources for improving RAG implementations
       * Art exhibition catalogs with segments concentrating on a particular art genre.
       * Policy documents with parts specifically addressing environmental regulations.
 
-#### 4. **Subjective Contextual Content**
+### 4. **Subjective Contextual Content**
 
 * **General Description**: This category includes documents where the information is either subjective or requires significant contextual or interpretive analysis. Understanding this content often involves reading between the lines, making sense of nuances, and inferring meanings that are not explicitly stated.
   * **Subjective Context**
@@ -98,7 +96,7 @@ A collection of ideas, insights, and resources for improving RAG implementations
       * Geopolitical analyses (interweaving disparate events, initiatives, and policies).
       * Cultural critiques (analysis of cultural trends and phenomena).
 
-#### 5. **Interactive or Dynamic Documents**
+### 5. **Interactive or Dynamic Documents**
 
 * **General Description**: This category includes documents that are not static but offer interactive features or change over time. This could include digital documents that allow reader interaction, or content that updates based on external data or user input, adding a layer of dynamism to the information presented.
   * **User-Interactive Documents**
@@ -118,7 +116,7 @@ A collection of ideas, insights, and resources for improving RAG implementations
       * Real-time sports event coverage.
       * Collaborative research documents with ongoing edits.
 
-#### 6. **Highly Specialized or Technical Documents**
+### 6. **Highly Specialized or Technical Documents**
 
 * **General Description**: This category comprises documents with highly specialized or technical content, often targeted towards a specific professional audience. The complexity of the language, the specificity of the terminology, and the depth of the subject matter require a high level of expertise for full comprehension.
   * **Industry-Specific Technical Documents**
@@ -138,7 +136,7 @@ A collection of ideas, insights, and resources for improving RAG implementations
       * Professional industry analyses.
       * Theoretical scientific papers.
 
-#### 7. **Multimedia-Integrated Content**
+### 7. **Multimedia-Integrated Content**
 
 * **General Description**: Documents in this category are characterized by the integration of text with multimedia elements such as images, videos, or audio. The understanding of such content requires processing and interpreting both textual and non-textual components, as they often complement each other in conveying the overall message. This integration adds a layer of complexity as the context and meaning can be significantly influenced by the multimedia elements.
   * **Text and Image Synergy**
@@ -157,3 +155,50 @@ A collection of ideas, insights, and resources for improving RAG implementations
       * Online courses with video lectures and textual notes.
       * News articles with embedded video interviews.
       * Video game scripts with narrative text and gameplay footage.
+
+## Document Preprocessing Methods
+
+### 1. **Preprocessing Localised Explicit Content**
+
+* **Self-contained Knowledge**
+  * **Observations**:
+    * No preprocessing necessary.
+    * The selection of the chunk delimiter, size, and overlap size needs to be adapted to the content type (e.g. smaller for a glossary, larger for an encyclopedic entry).
+    * Self contained segments tend to follow a recurrent pattern (e.g. dictionary entry, FAQ question-answer pair, etc.)
+      * If recurrent pattern is easily identifiable, a handcrafted regex might suffice for chunking.
+  * **Recommendations**:
+    * Use `LangChain`'s `RecursiveCharacterTextSplitter()` or `MarkdownTextSplitter` for strict text format topology chunking.
+    * Many of `LangChain`'s allows expanding the set of separator characters.
+* **Minimal Preprocessing Required**
+  * **Observations**:
+    * No preprocessing necessary if the full document length fits in LLM context window without impairing its ability to adequately fulfil instructions.
+  * **Recommendations**:
+    * If the full document length occupies too much space in the LLM context window, summarise the content with a lossless compression rate that makes it fit the LLM context window.
+
+### 2. **Preprocessing Disjointed Explicit Content**
+
+* **Longitudinal Semantics**
+  * **Observations**:
+    * Implement "narrative stitching", by generating full-content, theme-specific summaries.
+  * **Recommendations**:
+* **Structural Semantics**
+  * **Observations**:
+  * **Recommendations**:
+
+### 3. **Preprocessing Implicit Contextual Content**
+
+* **Global Metadata-Dependent**
+  * **Observations**:
+  * **Recommendations**:
+* **Section Metadata-Dependent**
+  * **Observations**:
+  * **Recommendations**:
+
+### 4. **Preprocessing Subjective Contextual Content**
+
+* **Subjective Context**
+  * **Observations**:
+  * **Recommendations**:
+* **Inferential Context**
+  * **Observations**:
+  * **Recommendations**:
