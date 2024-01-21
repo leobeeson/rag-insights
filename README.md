@@ -207,3 +207,22 @@ Addressing these issues is crucial for refining `RAG` systems, underscoring the 
   * **Observations**:
     * This method is particularly effective for content categories that inherently consist of discrete, self-contained units of information, which can be easily segmented into fixed-length chunks without losing their meaning or utility in a RAG system.
     * It is recommended for prototyping and development phases, but not recommended for actual production quality.
+
+### Recursive Character Text Splitting - Revised
+
+* **Description**: This method employs a set of separator characters to divide a document into chunks, facilitating splits that are more attuned to the document's inherent logical and structural breaks.
+* **Methodology**:
+  * Identify key separator characters (e.g., period, newline, semicolon).
+  * Optionally, include a number of overlapping characters between chunks to preserve context.
+  * Recursively split the document at these separators to ensure each chunk forms a coherent unit of content.
+* **Examples**:
+  * Emails (where clear breaks define separate topics or sections).
+  * Blog posts (structured with paragraphs encapsulating complete ideas).
+  * Articles (with distinct sections or thematic divisions).
+  * Instruction manuals (divided into clearly defined steps or sections).
+  * FAQ sections (each Q&A as a separate unit).
+* **Recommended Categories**:
+  * **Localised Explicit Content**:
+    * *Self-contained Knowledge*: Perfect for documents where each paragraph or section provides a complete unit of information.
+    * *Minimal Preprocessing Required*: Fits documents presenting information in a straightforward, easily understandable manner.
+* **Observations**: The Recursive Character Text Splitting method shines in its ability to segment documents while respecting their inherent logical structure.
