@@ -1,6 +1,14 @@
 # rag-insights
 A collection of ideas, insights, and resources for improving RAG implementations.
 
+## Definitions
+
+* **Content**: Textual information presented in natural language, which may range from unstructured text to text with embedded semi-structured elements such as tables, lists, and formatted sections. This encompasses a broad spectrum of written communication forms, including but not limited to prose, lists, and tabulated data.
+* **Document**: A container for content, which can be in various formats including digital (e.g., PDF files, Word documents, emails, web pages) and physical (printed materials). Documents are characterized by their capacity to encapsulate information, ranging from extensive reports to brief notes, across multiple genres and media.
+* **Semantic Constituents**: The elemental components of a document's meaning, comprising identifiable entities (named, common, or abstract), their attributes, and the relationships between them. These constituents form the building blocks of the document's narrative or informational structure, representing discrete ideas, facts, arguments, or themes.
+* **Semantic Structure**: The organizational framework that connects semantic constituents within a document, outlining how individual ideas, themes, or concepts are interrelated. This structure provides a blueprint for understanding the document’s comprehensive meaning, guiding how information is interpreted and related to the broader context or narrative.
+* **Motif**: A pattern or theme that recurs within a single document or across multiple documents, identified by its consistent semantic structure. Motifs contribute to the overarching narrative or thematic composition of content, offering insights into prevalent ideas, trends, or concepts within or across a corpus of documents.
+
 ## Document Preprocessing Taxonomy
 
 ### 1. **Localised Explicit Content**
