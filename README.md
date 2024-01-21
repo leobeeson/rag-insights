@@ -187,47 +187,23 @@ Addressing these issues is crucial for refining `RAG` systems, underscoring the 
 
 ## Document Preprocessing Methods
 
-### 1. **Preprocessing Localised Explicit Content**
+### Fix-length Character Text Splitting
 
-* **Self-contained Knowledge**
+* **Description**: This method divides a document's text into chunks of a specified number of characters, incorporating a set number of overlapping characters between sequential chunks to maintain context continuity.
+* **Methodology**:
+  * Determine the fixed number of characters per chunk (`X`).
+  * Include a specified number of overlapping characters (`Y`) between sequential chunks.
+  * Split the document into chunks at every `Xth` character, incorporating the `Y` overlapping characters to enhance contextual linkage without disrupting content integrity.
+* **Examples**:
+  * Dictionaries (specific word definitions).
+  * Encyclopedias (detailed topic explanations).
+  * Fact sheets (concise data or statistics).
+  * FAQ sections (direct answers to common questions).
+  * Instruction manuals (specific procedural instructions).
+* **Recommended Categories**:
+  * **Localised Explicit Content**:
+    * *Self-contained Knowledge*: Ideal for documents where each chunk can stand alone as a complete unit of information.
+    * *Minimal Preprocessing Required*: Suitable for documents that are straightforward and factual, requiring little to no additional context for understanding.
   * **Observations**:
-    * No preprocessing necessary.
-    * The selection of the chunk delimiter, size, and overlap size needs to be adapted to the content type (e.g. smaller for a glossary, larger for an encyclopedic entry).
-    * Self contained segments tend to follow a recurrent pattern (e.g. dictionary entry, FAQ question-answer pair, etc.)
-      * If recurrent pattern is easily identifiable, a handcrafted regex might suffice for chunking.
-  * **Recommendations**:
-    * Use `LangChain`'s `RecursiveCharacterTextSplitter()` or `MarkdownTextSplitter` for strict text format topology chunking.
-    * Many of `LangChain`'s allows expanding the set of separator characters.
-* **Minimal Preprocessing Required**
-  * **Observations**:
-    * No preprocessing necessary if the full document length fits in LLM context window without impairing its ability to adequately fulfil instructions.
-  * **Recommendations**:
-    * If the full document length occupies too much space in the LLM context window, summarise the content with a lossless compression rate that makes it fit the LLM context window.
-
-### 2. **Preprocessing Disjointed Explicit Content**
-
-* **Longitudinal Semantics**
-  * **Observations**:
-    * Implement "narrative stitching", by generating full-content, theme-specific summaries.
-  * **Recommendations**:
-* **Structural Semantics**
-  * **Observations**:
-  * **Recommendations**:
-
-### 3. **Preprocessing Implicit Contextual Content**
-
-* **Global Metadata-Dependent**
-  * **Observations**:
-  * **Recommendations**:
-* **Section Metadata-Dependent**
-  * **Observations**:
-  * **Recommendations**:
-
-### 4. **Preprocessing Subjective Contextual Content**
-
-* **Subjective Context**
-  * **Observations**:
-  * **Recommendations**:
-* **Inferential Context**
-  * **Observations**:
-  * **Recommendations**:
+    * This method is particularly effective for content categories that inherently consist of discrete, self-contained units of information, which can be easily segmented into fixed-length chunks without losing their meaning or utility in a RAG system.
+    * It is recommended for prototyping and development phases, but not recommended for actual production quality.
