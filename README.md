@@ -28,6 +28,7 @@ Addressing these issues is crucial for refining `RAG` systems, underscoring the 
 ### 1. **Localised Explicit Content**
 
 * **General Description**: This category includes documents where information is presented directly and unambiguously. The content is factual, straightforward, and often descriptive, requiring minimal interpretation or contextualization. The information in each section or paragraph is highly localised, typically self-contained, making it ideal for direct query matching in a RAG system.
+* **Subcategories**:
   * **Self-contained Knowledge**
     * **Description**: These are documents where each chunk of text provides a complete and independent unit of information. The content is clear, concise, and does not require additional context for understanding. This straightforward nature makes the information easily retrievable and comprehensible.
     * **Examples**:
@@ -52,6 +53,7 @@ Addressing these issues is crucial for refining `RAG` systems, underscoring the 
 ### 2. **Disjointed Explicit Content**
 
 * **General Description**: This category encompasses documents where relevant information is spread across different sections or chunks, often lacking explicit links or references between them. This structural disjointness often results in fragmentation of information, requiring more complex preprocessing to identify and connect relevant parts.
+* **Subcategories**:
   * **Longitudinal Semantics**
     * **Description**: In these documents, the relevant information is distributed throughout various sections, often lacking explicit connections. This disjointed nature can cause challenges in retrieving information that is contextually linked but not textually adjacent, with some sections providing background or introductory material while others contain detailed content. A deeper understanding of the document's structure is essential for effective information retrieval.
     * **Examples**:
@@ -76,6 +78,7 @@ Addressing these issues is crucial for refining `RAG` systems, underscoring the 
 ### 3. **Implicit Contextual Content**
 
 * **General Description**: This category comprises documents where most chunks carry implicit information, often related to document-level metadata or overarching themes. Understanding such content requires recognizing these underlying, often unspoken, contexts.
+* **Subcategories**:
   * **Global Metadata-Dependent**
     * **Description**: Here, the content in each section is implicitly tied to certain metadata, like the subject of the document, time frame, or specific entities. While the text may not repeatedly mention these metadata elements, they are essential for understanding the content's full scope and relevance. It is analogous to **Longitudinal Semantics**, but the semantics cascade from document-level metadata across the entire content document.
     * **Examples**:
@@ -100,6 +103,7 @@ Addressing these issues is crucial for refining `RAG` systems, underscoring the 
 ### 4. **Subjective Contextual Content**
 
 * **General Description**: This category includes documents where the information is either subjective or requires significant contextual or interpretive analysis. Understanding this content often involves reading between the lines, making sense of nuances, and inferring meanings that are not explicitly stated.
+* **Subcategories**:
   * **Subjective Context**
     * **Description**: These documents contain information that is subjective, often based on personal opinions, experiences, or interpretations. The content may not explicitly state certain facts, requiring the reader to infer meanings or understand the context.
     * **Examples**:
@@ -121,6 +125,7 @@ Addressing these issues is crucial for refining `RAG` systems, underscoring the 
 ### 5. **Interactive or Dynamic Documents**
 
 * **General Description**: This category includes documents that are not static but offer interactive features or change over time. This could include digital documents that allow reader interaction, or content that updates based on external data or user input, adding a layer of dynamism to the information presented.
+* **Subcategories**:
   * **User-Interactive Documents**
     * **Description**: Documents that offer interactivity, allowing users to engage with the content in a non-linear fashion. This could include choosing what content to view or manipulate, affecting how the information is presented or understood.
     * **Examples**:
@@ -141,6 +146,7 @@ Addressing these issues is crucial for refining `RAG` systems, underscoring the 
 ### 6. **Highly Specialized or Technical Documents**
 
 * **General Description**: This category comprises documents with highly specialized or technical content, often targeted towards a specific professional audience. The complexity of the language, the specificity of the terminology, and the depth of the subject matter require a high level of expertise for full comprehension.
+* **Subcategories**:
   * **Industry-Specific Technical Documents**
     * **Description**: These documents contain detailed technical information specific to a particular industry or field. They require specialized knowledge for interpretation and often contain jargon, technical diagrams, or data specific to that field.
     * **Examples**:
@@ -161,6 +167,7 @@ Addressing these issues is crucial for refining `RAG` systems, underscoring the 
 ### 7. **Multimedia-Integrated Content**
 
 * **General Description**: Documents in this category are characterized by the integration of text with multimedia elements such as images, videos, or audio. The understanding of such content requires processing and interpreting both textual and non-textual components, as they often complement each other in conveying the overall message. This integration adds a layer of complexity as the context and meaning can be significantly influenced by the multimedia elements.
+* **Subcategories**:
   * **Text and Image Synergy**
     * **Description**: Documents where text is closely intertwined with images, requiring both to be understood in conjunction. The images are not mere decorations but carry significant content that complements or elaborates on the text.
     * **Examples**:
