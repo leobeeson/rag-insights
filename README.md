@@ -3,6 +3,7 @@ A collection of ideas, insights, and resources for improving RAG implementations
 
 ## Definitions
 
+* **Retrieval Augmented Generation (RAG)**: A hybrid approach that combines the retrieval of relevant information from a dataset with the generative capabilities of large language models (LLM) to produce accurate, contextually rich responses. It enhances the depth and relevance of answers by dynamically incorporating external knowledge sources into the response generation process.
 * **Content**: Textual information presented in natural language, which may range from unstructured text to text with embedded semi-structured elements such as tables, lists, and formatted sections. This encompasses a broad spectrum of written communication forms, including but not limited to prose, lists, and tabulated data.
 * **Document**: A container for content, which can be in various formats including digital (e.g., PDF files, Word documents, emails, web pages) and physical (printed materials). Documents are characterized by their capacity to encapsulate information, ranging from extensive reports to brief notes, across multiple genres and media.
 * **Semantic Constituents**: The elemental components of a document's meaning, comprising identifiable entities (named, common, or abstract), their attributes, and the relationships between them. These constituents form the building blocks of the document's narrative or informational structure, representing discrete ideas, facts, arguments, or themes.
