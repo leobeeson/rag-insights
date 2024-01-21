@@ -11,6 +11,18 @@ A collection of ideas, insights, and resources for improving RAG implementations
 * **Motif**: A pattern or theme that recurs within a single document or across multiple documents, identified by its consistent semantic structure. Motifs contribute to the overarching narrative or thematic composition of content, offering insights into prevalent ideas, trends, or concepts within or across a corpus of documents.
 * **Chunk**: A segment of text extracted from a document, designed to be a manageable unit for processing. In RAG systems, a chunk represents a discrete portion of content that is self-contained enough to provide contextually relevant information in response to a query. Chunks are created by segmenting documents into parts that can individually be analyzed, indexed, or retrieved, facilitating efficient information retrieval and generation. The size and scope of a chunk can vary, depending on the document's structure and the requirements of the RAG system, ranging from a single sentence to several paragraphs.
 
+## Problems
+
+The diversity of document formats and the complexity of content present significant challenges for `RAG` systems, including:
+
+* **Fragmentation of Semantic Constituents**: `RAG` systems often encounter difficulties in generating comprehensive responses when relevant information is dispersed across multiple, non-sequential chunks. This fragmentation can result in the omission of critical details, as the system may not retrieve all necessary chunks due to their scattered distribution or low vector similarity to the user's query.
+* **Interpretation of Implicit Content**: The challenge of discerning implicit information, whether embedded within document metadata or requiring contextualization from unretrieved chunks, poses a significant hurdle. `RAG` systems might deliver incomplete or inaccurate responses by missing out on the full context, especially when the essential subtleties that guide correct interpretation are spread across several parts of the document.
+* **Subjectivity and Inference**: Dealing with subjective content or information that necessitates drawing inferences from multiple nuanced chunks presents obstacles. When not all relevant chunks are retrieved—due to their subtle relevance or low similarity scores—the system may generate responses that veer off-topic or misrepresent the intended meaning, leading to a diminished objectivity and reliability of the information provided.
+* **Navigating Document Heterogeneity**: The wide range of document types, encompassing both structured and unstructured content, complicates the retrieval and preprocessing stages. Adapting to the diverse semantic structures and varying formats demands sophisticated document ETL (Extract, Transform, Load) and preprocessing techniques, critical for ensuring the relevance and precision of the information retrieved.
+* **Efficiency and Scalability**: Balancing the demands of efficient processing with the need for scalability is increasingly challenging as document complexity and length escalate. `RAG` systems must manage this balance adeptly to prevent degradation in response quality or performance slowdowns, a task that grows more complex with the introduction of more intricate and voluminous documents.
+
+Addressing these issues is crucial for refining `RAG` systems, underscoring the need for a detailed and adaptable taxonomy for document preprocessing. Such a framework is essential for improving `RAG` systems' capacity to handle a broad spectrum of document types and to navigate the intricacies of information retrieval and generation effectively.
+
 ## Document Preprocessing Taxonomy
 
 ### 1. **Localised Explicit Content**
