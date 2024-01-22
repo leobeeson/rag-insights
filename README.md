@@ -225,4 +225,28 @@ Addressing these issues is crucial for refining `RAG` systems, underscoring the 
   * **Localised Explicit Content**:
     * *Self-contained Knowledge*: Perfect for documents where each paragraph or section provides a complete unit of information.
     * *Minimal Preprocessing Required*: Fits documents presenting information in a straightforward, easily understandable manner.
-* **Observations**: The Recursive Character Text Splitting method shines in its ability to segment documents while respecting their inherent logical structure.
+* **Observations**:
+  * The Recursive Character Text Splitting method shines in its ability to segment documents while respecting their inherent logical structure.
+
+### Document Format-Specific Text Splitting
+
+* **Description**: Utilizes format or programming language-specific heuristics to segment a document into chunks, thereby maintaining its original structure and logical organization.
+* **Methodology**:
+  * Identify the document's format (e.g., Markdown, HTML, Python code).
+  * For Markdown documents, utilize tools like [MarkdownTextSplitter](https://api.python.langchain.com/en/latest/text_splitter/langchain.text_splitter.MarkdownTextSplitter.html#langchain-text-splitter-markdowntextsplitter) to segment the content based on headers or block elements.
+  * For HTML content, utilize tools like [RecursiveCharacterTextSplitter.from_language(language='html')](https://api.python.langchain.com/en/latest/text_splitter/langchain.text_splitter.RecursiveCharacterTextSplitter.html#langchain-text-splitter-recursivecharactertextsplitter), ensuring each chunk represents a coherent section or element.
+  * For programming code, such as Python, use [PythonCodeTextSplitter](https://api.python.langchain.com/en/latest/text_splitter/langchain.text_splitter.PythonCodeTextSplitter.html#langchain-text-splitter-pythoncodetextsplitter) to divide the code into logical blocks, functions, or classes.
+  * You can find other classes for other formats and languages in [langchain.text_splitter](https://api.python.langchain.com/en/latest/langchain_api_reference.html#module-langchain.text_splitter), along with the list of existing [programming languages](https://api.python.langchain.com/en/latest/text_splitter/langchain.text_splitter.Language.html#langchain.text_splitter.Language) that can be used for chunking.
+* **Examples**:
+  * Web content (HTML pages structured with clear sections and headings).
+  * Programming code (Python scripts, where logical blocks can be segmented).
+  * Structured documents (Markdown files, segmented by headers or lists).
+  * Technical documentation (API documentation in HTML or Markdown format).
+  * Online tutorials (HTML or Markdown formatted, with distinct instructional sections).
+* **Recommended Categories**:
+  * **Localised Explicit Content**:
+    * *Self-contained Knowledge*: Especially suited for structured documents where sections naturally form complete units of information.
+  * **Disjointed Explicit Content**:
+    * *Structural Semantics*: Applicable when documents have clear, format-defined sections that contribute to an overarching theme or narrative, such as unordered lists.
+* **Observations**:
+  * The method is adept at preserving document format integrity.
