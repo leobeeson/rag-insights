@@ -200,15 +200,19 @@ Addressing these issues is crucial for refining `RAG` systems, underscoring the 
   * Fact sheets (concise data or statistics).
   * FAQ sections (direct answers to common questions).
   * Instruction manuals (specific procedural instructions).
+* **Recommendations**:
+  * This method is particularly effective for content categories that inherently consist of discrete, self-contained units of information, which can be easily segmented into fixed-length chunks without losing their meaning or utility in a RAG system.
+  * It is recommended for prototyping and development phases, but not recommended for actual production quality.
+  * An analogous method is to split the text by tokens instead of characters.
+  * **Resources**:
+    * [LangChain: Split by Characters](https://python.langchain.com/docs/modules/data_connection/document_transformers/character_text_splitter)
+    * [LangChain: Split by Tokens](https://python.langchain.com/docs/modules/data_connection/document_transformers/split_by_token)
 * **Recommended Categories**:
   * **Localised Explicit Content**:
     * *Self-contained Knowledge*: Ideal for documents where each chunk can stand alone as a complete unit of information.
     * *Minimal Preprocessing Required*: Suitable for documents that are straightforward and factual, requiring little to no additional context for understanding.
-  * **Observations**:
-    * This method is particularly effective for content categories that inherently consist of discrete, self-contained units of information, which can be easily segmented into fixed-length chunks without losing their meaning or utility in a RAG system.
-    * It is recommended for prototyping and development phases, but not recommended for actual production quality.
 
-### Recursive Character Text Splitting - Revised
+### Recursive Character Text Splitting
 
 * **Description**: This method employs a set of separator characters to divide a document into chunks, facilitating splits that are more attuned to the document's inherent logical and structural breaks.
 * **Methodology**:
@@ -221,16 +225,19 @@ Addressing these issues is crucial for refining `RAG` systems, underscoring the 
   * Articles (with distinct sections or thematic divisions).
   * Instruction manuals (divided into clearly defined steps or sections).
   * FAQ sections (each Q&A as a separate unit).
+* **Recommendations**:
+  * This method is effective at segmenting documents while respecting their inherent logical structure.
+  * **Resources**:
+    * [LangChain: Recursively Split by Character](https://python.langchain.com/docs/modules/data_connection/document_transformers/recursive_text_splitter)
+    * [Langchain: `RecursiveCharacterTextSplitter` API and Usage Example](https://api.python.langchain.com/en/latest/text_splitter/langchain.text_splitter.RecursiveCharacterTextSplitter.html#)
 * **Recommended Categories**:
   * **Localised Explicit Content**:
     * *Self-contained Knowledge*: Perfect for documents where each paragraph or section provides a complete unit of information.
     * *Minimal Preprocessing Required*: Fits documents presenting information in a straightforward, easily understandable manner.
-* **Observations**:
-  * The Recursive Character Text Splitting method shines in its ability to segment documents while respecting their inherent logical structure.
 
 ### Document Format-Specific Text Splitting
 
-* **Description**: Utilizes format or programming language-specific heuristics to segment a document into chunks, thereby maintaining its original structure and logical organization.
+* **Description**: This method utilizes format or programming language-specific heuristics to segment a document into chunks, thereby maintaining the logical organization of the content along the lines of the formatting structure used to represent the content.
 * **Methodology**:
   * Identify the document's format (e.g., Markdown, HTML, Python code).
   * For Markdown documents, utilize tools like [MarkdownTextSplitter](https://api.python.langchain.com/en/latest/text_splitter/langchain.text_splitter.MarkdownTextSplitter.html#langchain-text-splitter-markdowntextsplitter) to segment the content based on headers or block elements.
@@ -243,10 +250,12 @@ Addressing these issues is crucial for refining `RAG` systems, underscoring the 
   * Structured documents (Markdown files, segmented by headers or lists).
   * Technical documentation (API documentation in HTML or Markdown format).
   * Online tutorials (HTML or Markdown formatted, with distinct instructional sections).
+* **Recommendations**:
+  * The method is adept at preserving document format integrity.
+  * **Resources**:
+    * [LangChain: Split by Code](https://python.langchain.com/docs/modules/data_connection/document_transformers/code_splitter)
 * **Recommended Categories**:
   * **Localised Explicit Content**:
     * *Self-contained Knowledge*: Especially suited for structured documents where sections naturally form complete units of information.
   * **Disjointed Explicit Content**:
     * *Structural Semantics*: Applicable when documents have clear, format-defined sections that contribute to an overarching theme or narrative, such as unordered lists.
-* **Observations**:
-  * The method is adept at preserving document format integrity.
