@@ -259,3 +259,23 @@ Addressing these issues is crucial for refining `RAG` systems, underscoring the 
     * *Self-contained Knowledge*: Especially suited for structured documents where sections naturally form complete units of information.
   * **Disjointed Explicit Content**:
     * *Structural Semantics*: Applicable when documents have clear, format-defined sections that contribute to an overarching theme or narrative, such as unordered lists.
+
+### Document Structure-Specific Text Splitting
+
+* **Description**: This method leverages identifiable structural markers within documents, such as chapters, sections, subsections, page breaks, appendices, etc., to divide text into logically organized chunks that mirror the documents intrinsic structure.
+* **Methodology**:
+  * Utilize regular expressions to detect structural markers, identifying patterns indicative of a new chapter, section, subsection, etc.
+  * Carefully segment the document at these markers to ensure that each chunk aligns with a distinct, coherent section or division, preserving the document’s structural and logical flow.
+* **Examples**:
+  * Academic theses (organized by chapters or sections).
+  * Legal statutes (divided into clauses or articles, where each segment details specific legal codes or regulations).
+  * Books (split by chapters or parts).
+  * Comprehensive reports (segmented by sections or headings).
+  * Multi-chapter textbooks (organized by chapters or topics, aiding in educational structuring and study).
+* **Recommendations**:
+  * The method is recommended particularly for documents with clearly defined sections that are meant to be consumed in a specific order or as standalone units of information.
+  * Use regular expressions.
+  * [Example: Breaking up text document into sections with Python using Regex match on section titles](https://stackoverflow.com/questions/48770528/breaking-up-text-document-into-sections-with-python-using-regex-match-on-section)
+* **Recommended Categories**:
+  * **Localised Explicit Content**:
+    * *Self-contained Knowledge*: This method is particularly suited for documents where distinct sections inherently form complete units of knowledge or information, beneficial for direct retrieval and understanding.
