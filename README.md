@@ -299,6 +299,8 @@ Addressing these issues is crucial for refining `RAG` systems, underscoring the 
   * Beware of burgeoning tokens costs or increased response latency given the increased prompt context size.
   * Use high-quality embeddings to improve the accuracy of relevance matching.
   * Consider pre-filtering documents based on metadata to enhance retrieval efficiency.
+  * **Resources**:
+    * [LangChain: Parent Document Retriever](https://python.langchain.com/docs/modules/data_connection/retrievers/parent_document_retriever)
 * **Recommended Categories**:
   * **Disjointed Explicit Content**:
     * *Longitudinal Semantics*: This method fetches entire documents or significant sections that offer essential context beyond the immediate chunk, where understanding hinges on overarching themes and narratives.
