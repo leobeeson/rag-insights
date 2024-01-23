@@ -283,26 +283,22 @@ Addressing these issues is crucial for refining `RAG` systems, underscoring the 
 ### Parent Document Retriever
 
 * **Description**: This method matches chunk embeddings with a user's query to retrieve the selected chunks' relevant parent documents or segments.
-
 * **Methodology**:
   * Generate embeddings for each document chunk using a suitable NLP model such as BERT or GPT.
   * Match these embeddings with the query's embedding to determine relevance scores.
   * Retrieve and display the parent document or the most relevant segments based on matching scores.
-
 * **Examples**:
   * Complex Legal Documents (contextual clarity from surrounding sections)
   * Scientific Research Papers (comprehensive insights from full context)
   * Technical Manuals (detailed understanding from related instructions)
   * Historical Documents (full narrative appreciation from complete records)
   * Multi-part Educational Content (cohesive learning from interconnected sections)
-
 * **Recommendations**:
   * This method is particularly effective for complex documents where retrieving the entire content or significant segments provides the user with comprehensive context, enhancing the overall understanding and relevance of the information presented.
   * Retrieve the full parent document or section, as long as it fits within the LLM's context window.
   * Beware of burgeoning tokens costs or increased response latency given the increased prompt context size.
   * Use high-quality embeddings to improve the accuracy of relevance matching.
   * Consider pre-filtering documents based on metadata to enhance retrieval efficiency.
-
 * **Recommended Categories**:
   * **Disjointed Explicit Content**:
     * *Longitudinal Semantics*: This method fetches entire documents or significant sections that offer essential context beyond the immediate chunk, where understanding hinges on overarching themes and narratives.
