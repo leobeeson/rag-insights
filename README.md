@@ -335,3 +335,45 @@ Addressing these issues is crucial for refining `RAG` systems, underscoring the 
   * **Implicit Contextual Content**:
     * *Global Metadata-Dependent*: Multi-vector embeddings are critical for documents where implicit themes or concepts span across the entire content, aiding in capturing the essence of such themes.
     * *Section Metadata-Dependent*: Facilitates the nuanced retrieval of chunks that are implicitly tied to specific sub-themes or metadata within a section, by leveraging segment summaries and thematic vectors.
+
+## Reciprocal Rank Fusion with Generated Queries
+
+* **Description**: For every user query, pass it to an LLM to generate variations of the query, and uses all these generated queries to retrieve relevant chunks, and then rank and merges retrieved chunks.
+* #TODO
+
+## Hypothetical Document Embeddings (HyDE)
+
+* **Description**:
+  * Retrieval method used to enhance information retrieval by generating a hypothetical document for an incoming query. The process involves the following steps:
+    * A Large Language Model (LLM), such as ChatGPT or InstructGPT, is fed with a query and instructed to generate a hypothetical document that answers the question. This document may contain some factual errors but is designed to mimic a relevant document.
+    * An unsupervised encoder, such as Contriever, is used to encode this hypothetical document into an embedding vector. This phase involves a strategic filtration process where extraneous details are pruned to accentuate the core relevance attributes.
+    * This embedding vector is then used to search against a vector database, returning the most similar real documents.
+  * #TODO
+
+## Hypothetical Chunk Questions
+
+* **Description**: Similar to `HyDE`, but instead of creating hypothetical answers to the user query, hypothetical questions are generated for every chunk, and used to compare the incoming user query to them.
+* #TODO
+
+## Semantic Chunking Text Splitting
+
+* **Description**: There are multiple implementations to this:
+  * Clustering of Similar Sentences: Splits text into sentences, converts sentences into embeddings, compares the embeddings of successive sentences, and if very similar, will keep similar sent+0ences as part of the same chunk.
+  * Clustering by Search of Break Points: Splits text into sentences, converts sentences into embeddings, aggregates every sentence embedding with its preceding and succeeding sentence embedding, and then compares the aggregate embeddings to find where one aggregate embedding has a high cosine distance (i.e. an outlier value) from the previous one, creating a break (i.e. two chunks) at said break.
+  * 
+
+## Thematic Chunking Text Splitting
+
+**Description**: Implement "narrative stitching", by generating full-content, theme-specific clusters/summaries. There are multiple implementations to this:
+  * Unsupervised Topic Chunking: 1. Creates an empty index for potential topics in the document. 2. Splits text into sentences. 3. Passes each sentence through an LLM. 4. LLM decides to which topic in the index it belongs to. 5. If it identifies a relevant topic for the sentence, it adds the sentence to that topic's chunk. 6. If no topic is relevant, create a new topic in the index, and the sentence to this new topic's chunk.
+  * Supervised Topic Chunking: Same as `Unsupervised Topic Chunking`, but the developer defines the possible topics. Every sentence must be added to one of these predefined topics.
+  * Semi-Supervised Topic Chunking: Same as `Supervised Topic Chunking`, but if the LLM can't assign a sentence to one of the predefined topics, it iks allowed to create new topics.
+  * Narrative Chunking: Similar to `Topic Chunking`, but instead of chunking by topics, it assigns sentences to longitudinal themes (i.e. narratives) that occur throughout the document. It implies the LLM doing a first pass across the documents to identify the different overarching narratives, and then iterates over every sentence assigning each one to it;s corresponding narrative. A method could assign sentences exclusively to a single narrative, while another method could allow to assign sentences relevant to multiple narratives to each narrative to which it is relevant.
+* #TODO
+
+## Text Splitting with Metadata Enrichment
+
+* **Description**: Irrespective of the chunking method, each chunk is enriched with chunk and document metadata.
+  * Chunk Metadata Enrichment: Using an LLM for generating summaries of each chunk, extracting entities, keywords and key phrases, topics, references, headings, etc.
+  * Document Metadata Enrichment: Document file metadata is embedded in each chunks metadata, such as file name, file type, creation/modification timestamps, etc. Additionally, an LLM can be used to extract global metadata (e.g. entities, keywords and key phrases, topics, references, headings, etc.) from the entire document, and embed it in each chunks metadata as global/parent metadata.
+* #TODO
