@@ -308,3 +308,30 @@ Addressing these issues is crucial for refining `RAG` systems, underscoring the 
   * **Implicit Contextual Content**:
     * *Global Metadata-Dependent*: Retrieves comprehensive sections or entire documents encapsulating implicit themes or concepts, crucial for documents where understanding hinges on overarching metadata.
     * *Section Metadata-Dependent*: This method can be used to retrieve all other chunks that belong to the same section, where the section is tracked by a specific metadata value, providing necessary context for the segment's semantics.
+
+### Multi-Vector Retrieval
+
+* **Description**: Enhances chunk retrieval by assigning multiple vectors to each chunk, improving the relevance of similarity comparisons with query embeddings.
+* **Methodology**:
+  * Generate the primary content embedding for each chunk using an advanced NLP model.
+  * Assign additional vectors for the chunk, such as from chunk summaries, parent document summaries, and thematic segment summaries to encapsulate broader semantics.
+  * Use these multi-vector embeddings in similarity comparisons to enrich the retrieval process, ensuring a more nuanced match with user queries.
+* **Examples**:
+  * **Complex Legal Documents** (benefit from both detailed content and summary vectors for nuanced context)
+  * **Scientific Research Papers** (use summary and methodological vectors for precise retrieval)
+  * **Technical Documentation** (combine procedural details with overall guide summaries for targeted searches)
+  * **Thematic Blog Posts** (leverage thematic summaries alongside content vectors for theme-based retrieval)
+  * **Multi-Source News Articles** (utilize article summaries and thematic vectors for comprehensive context understanding)
+* **Recommendations**:
+  * Utilize summary vectors to capture the essence of chunks for quick relevance checks.
+  * Incorporate parent document summaries to provide a macro-contextual backdrop.
+  * Apply thematic segment summaries to align chunk retrieval with broader thematic inquiries.
+  * **Resources**:
+    * [LangChain: MultiVector Retriever](https://python.langchain.com/docs/modules/data_connection/retrievers/multi_vector)
+* **Recommended Categories**:
+  * **Disjointed Explicit Content**:
+    * *Longitudinal Semantics*: This method is invaluable for documents with information spread out across sections, as additional vectors can bridge the context gap between non-contiguous chunks.
+    * *Structural Semantics*: Enhances retrieval by providing a multi-faceted understanding of each chunk's relation to its broader structural context.
+  * **Implicit Contextual Content**:
+    * *Global Metadata-Dependent*: Multi-vector embeddings are critical for documents where implicit themes or concepts span across the entire content, aiding in capturing the essence of such themes.
+    * *Section Metadata-Dependent*: Facilitates the nuanced retrieval of chunks that are implicitly tied to specific sub-themes or metadata within a section, by leveraging segment summaries and thematic vectors.
