@@ -360,7 +360,7 @@ Addressing these issues is crucial for refining `RAG` systems, underscoring the 
 * **Description**: There are multiple implementations to this:
   * Clustering of Similar Sentences: Splits text into sentences, converts sentences into embeddings, compares the embeddings of successive sentences, and if very similar, will keep similar sent+0ences as part of the same chunk.
   * Clustering by Search of Break Points: Splits text into sentences, converts sentences into embeddings, aggregates every sentence embedding with its preceding and succeeding sentence embedding, and then compares the aggregate embeddings to find where one aggregate embedding has a high cosine distance (i.e. an outlier value) from the previous one, creating a break (i.e. two chunks) at said break.
-  * 
+* #TODO
 
 ## Thematic Chunking Text Splitting
 
