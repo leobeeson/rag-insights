@@ -1,6 +1,32 @@
 # rag-insights
 A collection of ideas, insights, and resources for improving RAG implementations.
 
+## TOC
+
+1. Definitions
+2. Problems wit RAG
+3. Document Preprocessing Taxonomy
+   1. Localised Explicit Content
+   2. Disjointed Explicit Content
+   3. Implicit Contextual Content
+   4. Subjective Contextual Content
+   5. Interactive or Dynamic Documents
+   6. Highly Specialized or Technical Documents
+   7. Multimedia-Integrated Content
+4. Document Preprocessing Methods
+   1. Fix-length Character Text Splitting
+   2. Recursive Character Text Splitting
+   3. Document Format-Specific Text Splitting
+   4. Document Structure-Specific Text Splitting
+   5. Parent Document Retriever
+   6. Multi-Vector Retrieval
+   7. Reciprocal Rank Fusion with Generated Queries (WIP)
+   8. Hypothetical Document Embeddings (HyDE) (WIP)
+   9. Hypothetical Chunk Questions (WIP)
+   10. Semantic Chunking Text Splitting (WIP)
+   11. Thematic Chunking Text Splitting (WIP)
+   12. Text Splitting with Metadata Enrichment (WIP)
+
 ## Definitions
 
 * **Retrieval Augmented Generation (RAG)**: A hybrid approach that combines the retrieval of relevant information from a dataset with the generative capabilities of large language models (LLM) to produce accurate, contextually rich responses. It enhances the depth and relevance of answers by dynamically incorporating external knowledge sources into the response generation process.
